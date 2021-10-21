@@ -33,6 +33,14 @@
 
 */
 
+/*
+Chapter 5 - Looping
+	Write code to perform the following:
+		Declare an integer variable
+		Ask the user to enter a value for it
+		Write a loop to determine if the value is a prime number, and print out appropriate messages.
+*/
+
 using namespace std;
 #include <iostream>
 
@@ -40,9 +48,28 @@ int main() {
 	string name = "Bryan Finn";
 	string semesterSeason = "Spring";
 	int semesterYear = 2021;
-	
 
 	cout << "My name is " << name << "." << endl;
 	cout << "This is the " << semesterSeason << " " << semesterYear << " Semester." <<  endl;
 	cout << "This honors project reinforces the material learned each chapter at a deeper level." << endl;
+
+	int userEnteredNumber;
+	bool isPrime = true;
+	
+	cout << "Please enter in any integer: ";
+	cin >> userEnteredNumber;
+
+	if (userEnteredNumber == 0 || userEnteredNumber == 1)
+		isPrime = false;
+
+	for (int i = 2; i < userEnteredNumber; i++) {
+		if ((userEnteredNumber % i) == 0)
+			isPrime = false;
+	}
+
+	if (isPrime)
+		cout << userEnteredNumber << " is prime." << endl;
+	else
+		cout << userEnteredNumber << " is NOT prime." << endl;
+
 }
