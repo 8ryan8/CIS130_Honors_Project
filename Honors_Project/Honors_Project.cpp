@@ -57,45 +57,73 @@ Chapter 6 - Functions
 
 */
 
-using namespace std;
 #include <iostream>
+#include <ctime>
+#include <cstdlib>
+#include "my_numbers_10_30.h"
+using namespace std;
 
-bool isPrime(int);
+int main()
+{
+	srand(time(NULL));
+	My_numbers_10_30 numbers;
 
-int main() {
-	string name = "Bryan Finn";
-	string semesterSeason = "Spring";
-	int semesterYear = 2021;
+	numbers.print_all_details();
+	cout << "\nAfter ascending sort\n";
+	numbers.sort_asc();
+	numbers.print_all_details();
+	numbers.print_prime_arr_int_numbers();
 
-	cout << "My name is " << name << "." << endl;
-	cout << "This is the " << semesterSeason << " " << semesterYear << " Semester." <<  endl;
-	cout << "This honors project reinforces the material learned each chapter at a deeper level." << endl;
+	cout << "\n-------------- repopulating------------\n";
+	numbers.repopulate_unique_numbers();
+	numbers.print_all_details();
+	cout << "\nAfter descending sort\n";
+	numbers.sort_desc();
+	numbers.print_all_details();
+	numbers.print_prime_arr_int_numbers();
 
-	int userEnteredNumber;
-	bool isPrimeFlag;
-	
-	
-	cout << "Please enter in any integer: ";
-	cin >> userEnteredNumber;
-
-	isPrimeFlag = isPrime(userEnteredNumber);
-	
-	if (isPrimeFlag)
-		cout << userEnteredNumber << " is prime." << endl;
-	else
-		cout << userEnteredNumber << " is NOT prime." << endl;
-
+	return 0;
 }
 
-bool isPrime(int numberToCheck) {
-	bool isPrimeFlag = true;
-	if (numberToCheck == 0 || numberToCheck == 1)
-		isPrimeFlag = false;
-
-	for (int i = 2; i < numberToCheck; i++) {
-		if ((numberToCheck % i) == 0)
-			isPrimeFlag = false;
-	}
-	
-	return isPrimeFlag;
-}
+//using namespace std;
+//#include <iostream>
+//
+//bool isPrime(int);
+//
+//int main() {
+//	string name = "Bryan Finn";
+//	string semesterSeason = "Spring";
+//	int semesterYear = 2021;
+//
+//	cout << "My name is " << name << "." << endl;
+//	cout << "This is the " << semesterSeason << " " << semesterYear << " Semester." <<  endl;
+//	cout << "This honors project reinforces the material learned each chapter at a deeper level." << endl;
+//
+//	int userEnteredNumber;
+//	bool isPrimeFlag;
+//	
+//	
+//	cout << "Please enter in any integer: ";
+//	cin >> userEnteredNumber;
+//
+//	isPrimeFlag = isPrime(userEnteredNumber);
+//	
+//	if (isPrimeFlag)
+//		cout << userEnteredNumber << " is prime." << endl;
+//	else
+//		cout << userEnteredNumber << " is NOT prime." << endl;
+//
+//}
+//
+//bool isPrime(int numberToCheck) {
+//	bool isPrimeFlag = true;
+//	if (numberToCheck == 0 || numberToCheck == 1)
+//		isPrimeFlag = false;
+//
+//	for (int i = 2; i < numberToCheck; i++) {
+//		if ((numberToCheck % i) == 0)
+//			isPrimeFlag = false;
+//	}
+//	
+//	return isPrimeFlag;
+//}
