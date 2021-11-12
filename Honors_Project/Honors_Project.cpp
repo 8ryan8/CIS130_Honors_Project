@@ -57,11 +57,50 @@ Chapter 6 - Functions
 
 */
 
+/*
+Chapter 7 Arrays
+	Make the following change to the class definition:
+		See Photo
+	Make the following changes to the class functions:
+		In the class constructor, invoke the class function repopulate_unique_numbers()
+		In the repopulate_unique_numbers() function, make these changes:
+			Write a loop to place a random number between 10 and 30 in each element of the numbers array (Both 10 and 30 are part of the answer set)
+			Within this loop, create another loop to ensure that numbers in the array are unique
+		In the print_all_numbers function, print out all the elements in the numbers int array.
+		
+		Complete the following class functions:
+			get_maximum()
+			get_total()
+			get_minimum()
+			get_average()
+			get_median(). Since this function will be completed after Chapter 9, it should only have a stub statement, which is OK for now.
+
+		Copy code from the commented section of the original int main to complete the is_it_prime() function.
+
+		Complete the print_prime_numbers class function by making use of the class is_it_prime function. 
+		The function should invoke the is_it_prime function across each element of the numbers array and print it if it is a prime number.
+
+		Complete print_all_details() as follows:
+			Invoke and print out values returned by
+				get_maximum()
+				get_total()
+				get_minimum()
+				get_average()
+				get_median()
+			Invoke the print_all_numbers() function
+
+	At the end of this chapter's work, the functions highlighted in green must be completed. 
+		See Photo
+	The functions highlighted in yellow will be completed after Chapter 8.
+
+*/
+
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
-#include "my_numbers_10_30.h"
+#include "My_numbers_10_30.h"
 using namespace std;
+
 
 int main()
 {
@@ -84,6 +123,7 @@ int main()
 
 	return 0;
 }
+
 
 //using namespace std;
 //#include <iostream>

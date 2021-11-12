@@ -1,20 +1,38 @@
+using namespace std;
 #include "My_numbers_10_30.h"
 #include <iostream>
+#include <random>
 
 using namespace std;
 
 My_numbers_10_30::My_numbers_10_30()
 {
-	cout << "In constructor, My_numbers_10_30" << endl;
+	repopulate_unique_numbers();
 }
 float My_numbers_10_30::get_average()
 {
-	float average = 0;
+	int total = 0;
+
+	for (int i = 0; i < size; i++)
+	{
+		total += arr_int_numbers[i];
+	}
+
+	float sizeOfArrayFloat = static_cast<float>(size);
+	float average = total / sizeOfArrayFloat;
+
 	return average;
 }
 int My_numbers_10_30::get_maximum()
 {
-	int maximum = 0;
+	int maximum = arr_int_numbers[0];
+
+	for (int i = 0; i < size; i++)
+	{
+		if (arr_int_numbers[i] > maximum)
+			maximum = arr_int_numbers[i];
+	}
+
 	return maximum;
 }
 int My_numbers_10_30::get_median()
@@ -24,34 +42,115 @@ int My_numbers_10_30::get_median()
 }
 int My_numbers_10_30::get_minimum()
 {
-	int minimum = 0;
+	int minimum = arr_int_numbers[0];
+
+	for (int i = 0; i < size; i++)
+	{
+		if (arr_int_numbers[i] < minimum)
+			minimum = arr_int_numbers[i];
+	}
+
 	return minimum;
 }
 int My_numbers_10_30::get_total()
 {
 	int total_val = 0;
+	
+	for (int i = 0; i < size; i++)
+	{
+		total_val += arr_int_numbers[i];
+	}
+
 	return total_val;
 }
-bool My_numbers_10_30::is_it_prime(int)
+bool My_numbers_10_30::is_it_prime(int numberToCheck)
 {
-	bool ret_val = true;
-	return ret_val;
+	bool isPrimeFlag = true;
+	if (numberToCheck == 0 || numberToCheck == 1)
+		isPrimeFlag = false;
+	
+	for (int i = 2; i < numberToCheck; i++) {
+		if ((numberToCheck % i) == 0)
+			isPrimeFlag = false;
+	}
+	
+	return isPrimeFlag;
 }
 void My_numbers_10_30::print_all_arr_int_numbers()
 {
-	cout << "In print_all_arr_int_numbers" << endl;
+	cout << "array: ";
+	for (int i = 0; i < size; i++)
+	{
+		cout << arr_int_numbers[i] << " ";
+	}
+	cout << endl;
 }
 void My_numbers_10_30::print_all_details()
 {
-	cout << "In print_all_details" << endl;
+	cout << "\n---------------" << endl;
+	cout << "| ALL DETAILS |" << endl;
+	cout << "---------------" << endl;
+	cout << "maximum: " << get_maximum() << endl;
+	cout << "total: " << get_total() << endl;
+	cout << "minimum: " << get_minimum() << endl;
+	cout << "average: " << get_average() << endl;
+	cout << "median: " << get_median() << endl;
+
+	print_all_arr_int_numbers();
+	cout << endl;
 }
 void My_numbers_10_30::print_prime_arr_int_numbers()
 {
-	cout << "In print_prime_arr_int_numbers" << endl;
+	int countNumOfPrimeNumbers = 0;
+
+	cout << "Prime Number(s): ";
+
+	for (int i = 0; i < size; i++)
+	{
+		if (is_it_prime(arr_int_numbers[i]))
+		{
+			cout << arr_int_numbers[i] << " ";
+			countNumOfPrimeNumbers++;
+		}
+			
+	}
+
+	if (countNumOfPrimeNumbers == 0)
+		cout << "N/A";
+	
+	cout << endl;
 }
 void My_numbers_10_30::repopulate_unique_numbers()
 {
-	cout << "In repopulate_unique_numbers" << endl;
+	const int MIN = 10;
+	const int MAX = 30;
+	int number;
+
+	random_device engine;
+	uniform_int_distribution<int> randomInt(MIN, MAX);
+
+	for (int i = 0; i < size; i++)
+	{
+		bool isUnique;
+		
+		do
+		{
+			isUnique = true;
+			number = randomInt(engine);
+			for (int j = 0; j < i; j++)
+			{
+				if (arr_int_numbers[j] == number)
+				{
+					isUnique = false;
+					break;
+				}
+			}
+		} while (!isUnique);
+
+		arr_int_numbers[i] = number;
+	}
+
+
 }
 void My_numbers_10_30::sort_asc()
 {
