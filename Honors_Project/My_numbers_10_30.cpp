@@ -1,4 +1,4 @@
-using namespace std;
+﻿using namespace std;
 #include "My_numbers_10_30.h"
 #include <iostream>
 #include <random>
@@ -37,7 +37,14 @@ int My_numbers_10_30::get_maximum()
 }
 int My_numbers_10_30::get_median()
 {
-	int median = 0;
+	int tempArray[size];
+
+	for (int i = 0; i < size; i++)
+		tempArray[i] = arr_int_numbers[i];
+	
+	selectionSort(tempArray, size);
+	int median = tempArray[(size / 2)];
+
 	return median;
 }
 int My_numbers_10_30::get_minimum()
@@ -155,8 +162,56 @@ void My_numbers_10_30::repopulate_unique_numbers()
 void My_numbers_10_30::sort_asc()
 {
 	cout << "In sort_asc" << endl;
+	bubbleSort(arr_int_numbers, size);
 }
 void My_numbers_10_30::sort_desc()
 {
 	cout << "In sort_desc" << endl;
+	selectionSort(arr_int_numbers, size);
+}
+
+void My_numbers_10_30::bubbleSort(int array[], int size)
+{
+	int maxElement;
+	int index;
+
+	for (maxElement = (size - 1); maxElement > 0; maxElement--)
+	{
+		for (index = 0; index < maxElement; index++)
+		{
+			if (array[index] > array[index + 1])
+			{
+				swap(array[index], array[index + 1]);
+			}
+		}
+	}
+}
+     
+
+void My_numbers_10_30::selectionSort(int array[], int size)
+{
+	int maxIndex, maxValue;
+
+	for (int start = 0; start < (size - 1); start++)
+	{
+		maxIndex = start;
+		maxValue = array[start];
+		for (int index = start + 1; index < size; index++)
+		{
+			if (array[index] > maxValue)
+			{
+				maxValue = array[index];
+				maxIndex = index;
+			}
+		}
+		swap(array[maxIndex], array[start]);
+	}
+}
+
+
+void My_numbers_10_30::swap(int& a, int& b)
+{
+	int temp = a;
+	a = b;
+	b = temp;
 }

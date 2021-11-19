@@ -6,6 +6,9 @@ class My_numbers_10_30
 	private:
 		static const int size = 11;
 		int arr_int_numbers[size];
+		void bubbleSort(int[], int);
+		void selectionSort(int[], int);
+		void swap(int&, int&);
 
 	public:
 		My_numbers_10_30();
