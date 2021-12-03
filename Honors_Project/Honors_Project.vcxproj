@@ -139,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Honors_Project.cpp" />
+    <ClCompile Include="honors_project_class_tester.cpp" />
     <ClCompile Include="My_numbers_10_30.cpp" />
   </ItemGroup>
   <ItemGroup>

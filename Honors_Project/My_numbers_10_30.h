@@ -1,3 +1,15 @@
+/*
+ ***********************************************************************************************************************************************************
+ *	Script Name:	My_numbers_10_30.h
+ *	Author:			Bryan Finn
+ *	Class:			CIS 130 - C++ Honors Project
+ *	Professor:		Tim Moriarity
+ *	Purpose:		This is the defintion of the My_numbers_10_30 class where we write out each of the member function headers to give a picture overview.
+ *					We want to encourage encapsulation and data hiding with the access specifiers. Preprocessor directives to ensure if the project grows
+ *					that we only create one reference to this file with the #include "My_numbers_10_30.h" to save on memory.
+ ***********************************************************************************************************************************************************
+*/
+
 #ifndef MY_NUMBERS_10_30_H
 #define MY_NUMBERS_10_30_H
 
